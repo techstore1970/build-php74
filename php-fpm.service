@@ -1,0 +1,20 @@
+[Unit]
+Description=The PHP FastCGI Process Manager
+After=network.target
+
+[Service]
+LimitCORE=infinity
+LimitNOFILE=100000
+LimitNPROC=100000
+Type=simple
+PIDFile=/usr/local/php74/var/run/php-fpm.pid
+ExecStart=/usr/local/php74/sbin/php-fpm --nodaemonize -c /usr/local/php74/etc/php.ini  --fpm-config /usr/local/php74/etc/php-fpm.conf
+ExecReload=/bin/kill -USR2 $MAINPID
+
+# Set up a new file system namespace and mounts private /tmp and /var/tmp directories
+# so this service cannot access the global directories and other processes cannot
+# access this service's directories.
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
