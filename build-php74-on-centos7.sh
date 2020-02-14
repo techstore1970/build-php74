@@ -14,8 +14,6 @@ sudo useradd -g www-data www-data -M
 
 #创建
 cd /usr/local/src
-mkdir php74_src
-cd php74_src
 wget https://www.php.net/distributions/php-7.4.2.tar.gz
 tar xzvf php-7.4.2.tar.gz
 cd php-7.4.2
