@@ -13,7 +13,7 @@ sudo groupadd -r www-data
 sudo useradd -g www-data www-data -M
 
 #创建
-cd /home/centos
+cd /usr/local/src
 mkdir php74_src
 cd php74_src
 wget https://www.php.net/distributions/php-7.4.2.tar.gz
@@ -66,12 +66,12 @@ make
 sudo make install
 
 #复制配置文件
-sudo cp /home/centos/php74_src/php-7.4.2/sapi/fpm/php-fpm.conf /usr/local/php74/etc
-sudo cp /home/centos/php74_src/php-7.4.2/sapi/fpm/www.conf /usr/local/php74/etc/php-fpm.d/
-sudo cp /home/centos/php74_src/php-7.4.2/php.ini-production /usr/local/php74/etc/php.ini
+sudo cp /usr/local/src/php-7.4.2/sapi/fpm/php-fpm.conf /usr/local/php74/etc
+sudo cp /usr/local/src/php-7.4.2/sapi/fpm/www.conf /usr/local/php74/etc/php-fpm.d/
+sudo cp /usr/local/src/php-7.4.2/php.ini-production /usr/local/php74/etc/php.ini
 
 # 程序提供的配置文件需要修改一些配置项
-# sudo cp /home/centos/php74_src/php-7.4.2/sapi/fpm/php-fpm.service /usr/lib/systemd/system/
+# sudo cp /usr/local/src/php-7.4.2/sapi/fpm/php-fpm.service /usr/lib/systemd/system/
 
 # 本文采用配置文件如下
 wget https://raw.githubusercontent.com/techstore1970/build-php74/master/php-fpm.service 
